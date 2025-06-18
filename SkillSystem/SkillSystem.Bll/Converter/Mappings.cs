@@ -17,6 +17,14 @@ public static class Mappings
         };
     }
 
+    public static User ConvertToUser(UserCreateDto userCreateDto)
+    {
+        return new User()
+        {
+            FirstName = userCreateDto.FirstName,
+            LastName = userCreateDto.LastName,
+        };
+    }
     public static SkillGetDto ConvertToSkillGetDto(Skill skill)
     {
         return new SkillGetDto()
@@ -30,15 +38,16 @@ public static class Mappings
         };
     }
 
-    public static User ConvertToUser(UserCreateDto userCreateDto)
+    public static Skill ConvertToSkill(SkillCreateDto skillCreateDto)
     {
-        return new User()
+        return new Skill()
         {
-            FirstName = userCreateDto.FirstName,
-            LastName = userCreateDto.LastName,
+            Type = skillCreateDto.Type,
+            Name = skillCreateDto.Name,
+            Description = skillCreateDto.Description,
+            Level = (SkillLevel)skillCreateDto.Level,
+            UserId = skillCreateDto.UserId,
         };
     }
-
-
 }
 

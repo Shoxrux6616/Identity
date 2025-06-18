@@ -10,6 +10,7 @@ public static class DependicyInjectionConfiguration
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         builder.Services.AddScoped<IUserService, UserService>();
 
-
+        builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+        builder.Services.AddScoped<ISkillService, SkillService>();
     }
 }

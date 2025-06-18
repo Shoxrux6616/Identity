@@ -11,13 +11,4 @@ public class SkillGetDto
     public long UserId { get; set; }
 }
 
-public enum SkillLevelDto
-{
-    Elementary,
-    PreIntermediate,
-    Intermediate,
-    UpperIntermediate,
-    Advanced,
-    Expert,
-    Master
-}
+
