@@ -17,5 +17,23 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.HasMany(u => u.Skills)
             .WithOne(s => s.User)
             .HasForeignKey(s => s.UserId);
+
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
+        // ok
     }
 }
