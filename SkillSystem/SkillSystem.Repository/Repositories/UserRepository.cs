@@ -18,6 +18,11 @@ public class UserRepository : IUserRepository
         return await MainContext.Users.AnyAsync(x => x.UserId == userId);
     }
 
+    public Task DeleteAsync(User user)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<long> InsertAsync(User user)
     {
         await MainContext.Users.AddAsync(user);
@@ -46,5 +51,10 @@ public class UserRepository : IUserRepository
         await MainContext.Entry(user).Collection(u => u.Skills).LoadAsync();
 
         return user;
+    }
+
+    public Task UpdateAsync(User user)
+    {
+        throw new NotImplementedException();
     }
 }

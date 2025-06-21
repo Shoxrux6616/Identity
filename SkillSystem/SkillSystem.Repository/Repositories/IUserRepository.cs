@@ -10,4 +10,6 @@ public interface IUserRepository
     Task<User?> SelectByIdAsync(long userId);
 
     Task<bool> CheckUserExistance(long userId);
+    Task DeleteAsync(User user);
+    Task UpdateAsync(User user);
 }

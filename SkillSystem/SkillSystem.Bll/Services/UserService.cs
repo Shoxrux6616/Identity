@@ -16,6 +16,11 @@ public class UserService : IUserService
         Validator = validator;
     }
 
+    public Task DeleteAsync(long userId)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<ICollection<UserGetDto>> GetAllAsync()
     {
         var users = await UserRepository.SelectAllAsync();

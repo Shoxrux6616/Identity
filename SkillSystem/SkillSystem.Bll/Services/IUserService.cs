@@ -6,4 +6,5 @@ public interface IUserService
 {
     Task<long> PostAsync(UserCreateDto userCreateDto);
     Task<ICollection<UserGetDto>> GetAllAsync();
+    Task DeleteAsync(long userId);
 }
