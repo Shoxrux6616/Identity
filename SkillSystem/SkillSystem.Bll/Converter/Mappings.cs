@@ -23,6 +23,9 @@ public static class Mappings
         {
             FirstName = userCreateDto.FirstName,
             LastName = userCreateDto.LastName,
+            Email = userCreateDto.Email,
+            Password = userCreateDto.Password,
+            UserName = userCreateDto.UserName,
         };
     }
     public static SkillGetDto ConvertToSkillGetDto(Skill skill)
