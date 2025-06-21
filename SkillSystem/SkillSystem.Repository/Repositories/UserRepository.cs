@@ -13,6 +13,11 @@ public class UserRepository : IUserRepository
         MainContext = mainContext;
     }
 
+    public async Task<bool> CheckUserExistance(long userId)
+    {
+        return await MainContext.Users.AnyAsync(x => x.UserId == userId);
+    }
+
     public async Task<long> InsertAsync(User user)
     {
         await MainContext.Users.AddAsync(user);
@@ -29,13 +34,13 @@ public class UserRepository : IUserRepository
         return users;
     }
 
-    public async Task<User> SelectByIdAsync(long userId)
+    public async Task<User?> SelectByIdAsync(long userId)
     {
         var user = await MainContext.Users.FirstOrDefaultAsync(u => u.UserId == userId);
 
         if(user == null)
         {
-            throw new Exception($"User with id : {userId} not found");
+            return user;
         }
 
         await MainContext.Entry(user).Collection(u => u.Skills).LoadAsync();
