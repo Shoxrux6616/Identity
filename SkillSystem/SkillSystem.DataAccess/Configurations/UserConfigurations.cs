@@ -11,6 +11,14 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.ToTable("User");
         builder.HasKey(u => u.UserId);
 
+        builder.Property(u => u.Password).IsRequired();
+
+        builder.HasIndex(u => u.Email).IsUnique();
+        builder.Property(u => u.Email).IsRequired();
+
+        builder.HasIndex(u => u.UserName).IsUnique();
+        builder.Property(u => u.UserName).IsRequired();
+
         builder.Property(u => u.FirstName).IsRequired().HasMaxLength(50);
         builder.Property(u => u.LastName).IsRequired(false).HasMaxLength(50);
 
