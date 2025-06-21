@@ -11,13 +11,6 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.ToTable("User");
         builder.HasKey(u => u.UserId);
 
-        builder.Property(u => u.FirstName).IsRequired().HasMaxLength(50);
-        builder.Property(u => u.LastName).IsRequired(false).HasMaxLength(50);
-
-        builder.HasMany(u => u.Skills)
-            .WithOne(s => s.User)
-            .HasForeignKey(s => s.UserId);
-
         builder.Property(u => u.Password).IsRequired();
 
         builder.HasIndex(u => u.Email).IsUnique();
@@ -25,5 +18,12 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
 
         builder.HasIndex(u => u.UserName).IsUnique();
         builder.Property(u => u.UserName).IsRequired();
+
+        builder.Property(u => u.FirstName).IsRequired().HasMaxLength(50);
+        builder.Property(u => u.LastName).IsRequired(false).HasMaxLength(50);
+
+        builder.HasMany(u => u.Skills)
+            .WithOne(s => s.User)
+            .HasForeignKey(s => s.UserId);
     }
 }
