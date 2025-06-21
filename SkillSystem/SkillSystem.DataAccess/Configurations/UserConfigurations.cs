@@ -17,5 +17,13 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.HasMany(u => u.Skills)
             .WithOne(s => s.User)
             .HasForeignKey(s => s.UserId);
+
+        builder.Property(u => u.Password).IsRequired();
+
+        builder.HasIndex(u => u.Email).IsUnique();
+        builder.Property(u => u.Email).IsRequired();
+
+        builder.HasIndex(u => u.UserName).IsUnique();
+        builder.Property(u => u.UserName).IsRequired();
     }
 }
