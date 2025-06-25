@@ -84,6 +84,11 @@ public class SkillService : ISkillService
             throw new Exception($"Skill is not found with id : {skillUpdateDto.SkillId} to update");
         }
 
+        if (skillUpdateDto.UserId != skill.UserId)
+        {
+            throw new Exception($"Skill is not owned by you with id : {skillUpdateDto.UserId} to update");
+        }
+
         skill.Type = skillUpdateDto.Type;
         skill.Name = skillUpdateDto.Name;
         skill.Level = (SkillLevel)skillUpdateDto.Level;
@@ -93,13 +98,18 @@ public class SkillService : ISkillService
         await SkillRepository.UpdateAsync(skill);
     }
 
-    public async Task DeleteAsync(long skillId)
+    public async Task DeleteAsync(long userId, long skillId)
     {
         var skill = await SkillRepository.SelectByIdAsync(skillId);
 
         if (skill == null)
         {
             throw new Exception($"Skill is not found with id : {skillId} to delete");
+        }
+
+        if(userId != skill.UserId)
+        {
+            throw new Exception($"Skill is not owned by you with id : {skillId} to delete");
         }
 
         await SkillRepository.RemoveAsync(skill);

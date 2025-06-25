@@ -9,7 +9,7 @@ public interface ISkillService
     Task<ICollection<SkillGetDto>> GetAllAsync();
     Task<SkillPaginatedDto> GetAllAsync(int skip, int take);
     Task<ICollection<SkillGetDto>> GetAllByUserIdAsync(long userId);
-    Task DeleteAsync(long skillId);
+    Task DeleteAsync(long userId, long skillId);
     Task UpdateAsync(SkillUpdateDto skillUpdateDto);
     Task<SkillGetDto> GetByIdAsync(long skillId);
 
