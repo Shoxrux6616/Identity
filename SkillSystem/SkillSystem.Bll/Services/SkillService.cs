@@ -1,7 +1,9 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using SkillSystem.Bll.Converter;
 using SkillSystem.Bll.Dtos.SkillDto;
 using SkillSystem.Bll.Dtos.UserDto;
+using SkillSystem.DataAccess.Entities;
 using SkillSystem.Repository.Repositories;
 
 namespace SkillSystem.Bll.Services;
@@ -25,6 +27,22 @@ public class SkillService : ISkillService
         var skillsGetDto = skills.Select(s => Mappings.ConvertToSkillGetDto(s)).ToList();
         
         return skillsGetDto;
+    }
+
+    public async Task<SkillPaginatedDto> GetAllAsync(int skip, int take)
+    {
+        if (skip < 0) skip = 0;
+        if (take < 0 || take > 100) take = 10;
+
+        var skills = await SkillRepository.SelectAllAsync(skip, take);
+
+        var skillPaginatedDto = new SkillPaginatedDto()
+        {
+            TotalCount = await SkillRepository.SelectCountAllAsync(),
+            SkillGetDtos = skills.Select(s => Mappings.ConvertToSkillGetDto(s)).ToList()
+        };
+
+        return skillPaginatedDto;
     }
 
     public async Task<ICollection<SkillGetDto>> GetAllByUserIdAsync(long userId)
@@ -57,5 +75,46 @@ public class SkillService : ISkillService
         return skillId;
     }
 
+    public async Task UpdateAsync(SkillUpdateDto skillUpdateDto)
+    {
+        Skill? skill = await SkillRepository.SelectByIdAsync(skillUpdateDto.SkillId);
+
+        if (skill == null)
+        {
+            throw new Exception($"Skill is not found with id : {skillUpdateDto.SkillId} to update");
+        }
+
+        skill.Type = skillUpdateDto.Type;
+        skill.Name = skillUpdateDto.Name;
+        skill.Level = (SkillLevel)skillUpdateDto.Level;
+        skill.Description = skillUpdateDto.Description;
+        skill.UserId = skillUpdateDto.UserId;
+
+        await SkillRepository.UpdateAsync(skill);
+    }
+
+    public async Task DeleteAsync(long skillId)
+    {
+        var skill = await SkillRepository.SelectByIdAsync(skillId);
+
+        if (skill == null)
+        {
+            throw new Exception($"Skill is not found with id : {skillId} to delete");
+        }
+
+        await SkillRepository.RemoveAsync(skill);
+    }
+
+    public async Task<SkillGetDto> GetByIdAsync(long skillId)
+    {
+        var skill = await SkillRepository.SelectByIdAsync(skillId);
+
+        if(skill == null)
+        {
+            throw new Exception($"Skill is not found with id : {skillId}");
+        }
+
+        return Mappings.ConvertToSkillGetDto(skill);
+    }
 
 }

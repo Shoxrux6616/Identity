@@ -13,6 +13,11 @@ public class SkillRepository : ISkillRepository
         MainContext = mainContext;
     }
 
+    public async Task<long> SelectCountAllAsync()
+    {
+        return await MainContext.Skills.CountAsync();
+    }
+
     public async Task<long> InsertAsync(Skill skill)
     {
         await MainContext.Skills.AddAsync(skill);
@@ -25,6 +30,16 @@ public class SkillRepository : ISkillRepository
         var skills = await MainContext.Skills.ToListAsync();
         return skills;
     }
+
+    public async Task<ICollection<Skill>> SelectAllAsync(int skip, int take)
+    {
+        var query = MainContext.Skills.AsQueryable();
+        query = query.Skip(skip).Take(take);
+
+        var skills = await query.ToListAsync();
+        return skills;
+    }
+
 
     public async Task<ICollection<Skill>> SelectAllByUserIdAsync(long userId)
     {
@@ -42,5 +57,22 @@ public class SkillRepository : ISkillRepository
         //await MainContext.Entry(user).Collection(u => u.Skills).LoadAsync();
 
         //return user.Skills;
+    }
+
+    public async Task<Skill?> SelectByIdAsync(long skillId)
+    {
+        return await MainContext.Skills.FirstOrDefaultAsync(s => s.SkillId == skillId);
+    }
+
+    public async Task UpdateAsync(Skill skill)
+    {
+        MainContext.Skills.Update(skill);
+        await MainContext.SaveChangesAsync();
+    }
+
+    public async Task RemoveAsync(Skill skill)
+    {
+        MainContext.Skills.Remove(skill);
+        await MainContext.SaveChangesAsync();
     }
 }
