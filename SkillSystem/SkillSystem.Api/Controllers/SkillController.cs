@@ -9,15 +9,18 @@ namespace SkillSystem.Api.Controllers;
 public class SkillController : ControllerBase
 {
     private readonly ISkillService SkillService;
+    private readonly IG11Service G11Service;
 
-    public SkillController(ISkillService skillService)
+    public SkillController(ISkillService skillService, IG11Service g11Service)
     {
         SkillService = skillService;
+        G11Service = g11Service;
     }
 
     [HttpPost("add")]
     public async Task<long> PostSkill(SkillCreateDto skillCreateDto)
     {
+        // G11Service call
         return await SkillService.PostAsync(skillCreateDto);
     }
 
@@ -40,9 +43,9 @@ public class SkillController : ControllerBase
     }
 
     [HttpDelete("delete/{skillId}")]
-    public async Task Delete(long skillId)
+    public async Task Delete(long userId, long skillId)
     {
-        await SkillService.DeleteAsync(skillId);
+        await SkillService.DeleteAsync(userId, skillId);
     }
 
     [HttpPut("update")]

@@ -13,12 +13,14 @@ public class SkillService : ISkillService
     private readonly ISkillRepository SkillRepository;
     private readonly IUserRepository UserRepository;
     private readonly IValidator<SkillCreateDto> Validator;
+    private readonly IG11Service G11Service;
 
-    public SkillService(ISkillRepository skillRepository, IValidator<SkillCreateDto> validator, IUserRepository userRepository)
+    public SkillService(ISkillRepository skillRepository, IValidator<SkillCreateDto> validator, IUserRepository userRepository, IG11Service g11Service)
     {
         SkillRepository = skillRepository;
         Validator = validator;
         UserRepository = userRepository;
+        G11Service = g11Service;
     }
 
     public async Task<ICollection<SkillGetDto>> GetAllAsync()
@@ -55,6 +57,7 @@ public class SkillService : ISkillService
 
     public async Task<long> PostAsync(SkillCreateDto skillCreateDto)
     {
+        // G11Service
         var result = Validator.Validate(skillCreateDto);
 
         if (!result.IsValid)
