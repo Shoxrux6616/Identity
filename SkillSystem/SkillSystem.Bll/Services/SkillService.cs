@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Logging;
 using SkillSystem.Bll.Converter;
 using SkillSystem.Bll.Dtos.SkillDto;
 using SkillSystem.Bll.Dtos.UserDto;
@@ -14,13 +15,15 @@ public class SkillService : ISkillService
     private readonly IUserRepository UserRepository;
     private readonly IValidator<SkillCreateDto> Validator;
     private readonly IG11Service G11Service;
+    private readonly ILogger<SkillService> Logger;
 
-    public SkillService(ISkillRepository skillRepository, IValidator<SkillCreateDto> validator, IUserRepository userRepository, IG11Service g11Service)
+    public SkillService(ISkillRepository skillRepository, IValidator<SkillCreateDto> validator, IUserRepository userRepository, IG11Service g11Service, ILogger<SkillService> logger)
     {
         SkillRepository = skillRepository;
         Validator = validator;
         UserRepository = userRepository;
         G11Service = g11Service;
+        Logger = logger;
     }
 
     public async Task<ICollection<SkillGetDto>> GetAllAsync()
@@ -43,7 +46,7 @@ public class SkillService : ISkillService
             TotalCount = await SkillRepository.SelectCountAllAsync(),
             SkillGetDtos = skills.Select(s => Mappings.ConvertToSkillGetDto(s)).ToList()
         };
-
+        Logger.LogInformation("Skills retrieved successfully with skip: {Skip}, take: {Take}", skip, take);
         return skillPaginatedDto;
     }
 

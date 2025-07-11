@@ -17,7 +17,8 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         builder.ConfigureDatabase();
-        builder.ConfigureDI();  
+        builder.ConfigureDI();
+        builder.ConfigureSerilog();
 
         var app = builder.Build();
 
