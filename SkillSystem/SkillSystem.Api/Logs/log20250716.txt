@@ -1,0 +1,173 @@
+2025-07-16 16:20:26.806 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:20:27.022 +05:00 [INF] Request: GET /swagger/v1/swagger.json
+2025-07-16 16:20:38.655 +05:00 [INF] Request: GET /api/skill/get-all
+2025-07-16 16:20:52.329 +05:00 [INF] Request: GET /api/skill/get-all-paginated
+2025-07-16 16:21:10.720 +05:00 [INF] Request: GET /api/user/get-all
+2025-07-16 16:25:46.721 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:25:46.898 +05:00 [INF] Request: GET /swagger/v1/swagger.json
+2025-07-16 16:25:50.614 +05:00 [INF] Request: GET /api/skill/get-all
+2025-07-16 16:34:07.672 +05:00 [FTL] Application startup exception
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-07-16 16:34:07.706 +05:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-07-16 16:35:02.174 +05:00 [FTL] Application startup exception
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-07-16 16:35:02.205 +05:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-07-16 16:39:11.220 +05:00 [FTL] Application startup exception
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-07-16 16:39:11.254 +05:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-07-16 16:41:14.413 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:42:00.719 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:44:18.944 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:45:22.305 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:45:22.491 +05:00 [INF] Request: GET /swagger/v1/swagger.json
+2025-07-16 16:45:31.881 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:45:32.113 +05:00 [INF] Request: GET /swagger/v1/swagger.json
+2025-07-16 16:45:50.843 +05:00 [FTL] Application startup exception
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+2025-07-16 16:45:50.877 +05:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Cannot resolve scoped service 'SkillSystem.Bll.Services.ISkillService' from root provider.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteValidator.ValidateResolution(ServiceCallSite callSite, IServiceScope scope, IServiceScope rootScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.OnResolve(ServiceCallSite callSite, IServiceScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.Internal.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.ReflectionMiddlewareBinder.CreateMiddleware(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-07-16 16:46:13.825 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:46:14.038 +05:00 [INF] Request: GET /swagger/v1/swagger.json
+2025-07-16 16:46:25.130 +05:00 [INF] Request: GET /api/skill/get-all
+2025-07-16 16:47:08.248 +05:00 [INF] Request: DELETE /api/skill/delete/3
+2025-07-16 16:52:30.915 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:52:31.125 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: OnStarting cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.OnStarting(Func`2 callback, Object state)
+   at SkillSystem.Api.Middlewares.TimingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\TimingMiddleware.cs:line 16
+   at SkillSystem.Api.Middlewares.AddSkillsCountHeaderMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\AddSkillsCountHeaderMiddleware.cs:line 22
+   at SkillSystem.Api.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\RequestLoggingMiddleware.cs:line 16
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-16 16:52:31.159 +05:00 [ERR] Connection id "0HNE4BSV8857U", Request id "0HNE4BSV8857U:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: OnStarting cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.OnStarting(Func`2 callback, Object state)
+   at SkillSystem.Api.Middlewares.TimingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\TimingMiddleware.cs:line 16
+   at SkillSystem.Api.Middlewares.AddSkillsCountHeaderMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\AddSkillsCountHeaderMiddleware.cs:line 22
+   at SkillSystem.Api.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\RequestLoggingMiddleware.cs:line 16
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-07-16 16:52:47.008 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:52:47.204 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: OnStarting cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.OnStarting(Func`2 callback, Object state)
+   at SkillSystem.Api.Middlewares.TimingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\TimingMiddleware.cs:line 16
+   at SkillSystem.Api.Middlewares.AddSkillsCountHeaderMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\AddSkillsCountHeaderMiddleware.cs:line 22
+   at SkillSystem.Api.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\RequestLoggingMiddleware.cs:line 16
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-16 16:52:47.223 +05:00 [ERR] Connection id "0HNE4BT40TGLB", Request id "0HNE4BT40TGLB:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: OnStarting cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.OnStarting(Func`2 callback, Object state)
+   at SkillSystem.Api.Middlewares.TimingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\TimingMiddleware.cs:line 16
+   at SkillSystem.Api.Middlewares.AddSkillsCountHeaderMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\AddSkillsCountHeaderMiddleware.cs:line 22
+   at SkillSystem.Api.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\RequestLoggingMiddleware.cs:line 16
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-07-16 16:54:24.137 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-16 16:54:24.350 +05:00 [INF] Request: GET /swagger/v1/swagger.json
+2025-07-16 16:54:29.793 +05:00 [INF] Request: GET /api/skill/get-all
+2025-07-16 16:55:07.486 +05:00 [INF] Request: GET /api/user/get-all

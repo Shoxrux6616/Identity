@@ -43,7 +43,7 @@ public class UserService : IUserService
         var user = Mappings.ConvertToUser(userCreateDto);
         var userId = await UserRepository.InsertAsync(user);
 
-        Logger.LogInformation("User created successfully with ID: {UserId}", userId);
+        //Logger.LogInformation("User created successfully with ID: {UserId}", userId);
 
         return userId;
     }

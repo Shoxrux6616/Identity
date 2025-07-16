@@ -46,7 +46,7 @@ public class SkillService : ISkillService
             TotalCount = await SkillRepository.SelectCountAllAsync(),
             SkillGetDtos = skills.Select(s => Mappings.ConvertToSkillGetDto(s)).ToList()
         };
-        Logger.LogInformation("Skills retrieved successfully with skip: {Skip}, take: {Take}", skip, take);
+        //Logger.LogInformation("Skills retrieved successfully with skip: {Skip}, take: {Take}", skip, take);
         return skillPaginatedDto;
     }
 
