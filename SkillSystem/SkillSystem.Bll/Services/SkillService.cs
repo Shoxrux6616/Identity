@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using SkillSystem.Bll.Converter;
 using SkillSystem.Bll.Dtos.SkillDto;
@@ -16,21 +17,31 @@ public class SkillService : ISkillService
     private readonly IValidator<SkillCreateDto> Validator;
     private readonly IG11Service G11Service;
     private readonly ILogger<SkillService> Logger;
+    private readonly IMemoryCache MemoryCache;
+    private const string SkillCacheKey = "skill_cache_key";
 
-    public SkillService(ISkillRepository skillRepository, IValidator<SkillCreateDto> validator, IUserRepository userRepository, IG11Service g11Service, ILogger<SkillService> logger)
+    public SkillService(ISkillRepository skillRepository, IValidator<SkillCreateDto> validator, IUserRepository userRepository, IG11Service g11Service, ILogger<SkillService> logger, IMemoryCache memoryCache)
     {
         SkillRepository = skillRepository;
         Validator = validator;
         UserRepository = userRepository;
         G11Service = g11Service;
         Logger = logger;
+        MemoryCache = memoryCache;
     }
 
     public async Task<ICollection<SkillGetDto>> GetAllAsync()
     {
+        if (MemoryCache.TryGetValue(SkillCacheKey, out List<SkillGetDto> cachedSkills))
+        {
+            return cachedSkills;
+        }
+
         var skills = await SkillRepository.SelectAllAsync();
         var skillsGetDto = skills.Select(s => Mappings.ConvertToSkillGetDto(s)).ToList();
-        
+
+        MemoryCache.Set(SkillCacheKey, skillsGetDto, TimeSpan.FromMinutes(10));
+
         return skillsGetDto;
     }
 
@@ -46,7 +57,6 @@ public class SkillService : ISkillService
             TotalCount = await SkillRepository.SelectCountAllAsync(),
             SkillGetDtos = skills.Select(s => Mappings.ConvertToSkillGetDto(s)).ToList()
         };
-        //Logger.LogInformation("Skills retrieved successfully with skip: {Skip}, take: {Take}", skip, take);
         return skillPaginatedDto;
     }
 
@@ -77,7 +87,7 @@ public class SkillService : ISkillService
 
         var skill = Mappings.ConvertToSkill(skillCreateDto);
         var skillId = await SkillRepository.InsertAsync(skill);
-
+        ClearCache();
         return skillId;
     }
 
@@ -100,7 +110,7 @@ public class SkillService : ISkillService
         skill.Level = (SkillLevel)skillUpdateDto.Level;
         skill.Description = skillUpdateDto.Description;
         skill.UserId = skillUpdateDto.UserId;
-
+        ClearCache();
         await SkillRepository.UpdateAsync(skill);
     }
 
@@ -117,7 +127,7 @@ public class SkillService : ISkillService
         {
             throw new Exception($"Skill is not owned by you with id : {skillId} to delete");
         }
-
+        ClearCache();
         await SkillRepository.RemoveAsync(skill);
     }
 
@@ -133,4 +143,8 @@ public class SkillService : ISkillService
         return Mappings.ConvertToSkillGetDto(skill);
     }
 
+    private void ClearCache()
+    {
+        MemoryCache.Remove(SkillCacheKey);
+    }
 }

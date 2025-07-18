@@ -17,9 +17,11 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddMemoryCache();
         builder.ConfigureDatabase();
         builder.ConfigureDI();
         builder.ConfigureSerilog();
+
 
         var app = builder.Build();
 

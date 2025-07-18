@@ -18,6 +18,9 @@ public class SkillController : ControllerBase
     }
 
     [HttpPost("add")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(422)]
     public async Task<long> PostSkill(SkillCreateDto skillCreateDto)
     {
         // G11Service call
