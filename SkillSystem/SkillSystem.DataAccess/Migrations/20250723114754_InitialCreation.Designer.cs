@@ -11,7 +11,7 @@ using SkillSystem.DataAccess;
 namespace SkillSystem.DataAccess.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20250616112333_InitialCreation")]
+    [Migration("20250723114754_InitialCreation")]
     partial class InitialCreation
     {
         /// <inheritdoc />
@@ -67,6 +67,10 @@ namespace SkillSystem.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("UserId"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -76,7 +80,25 @@ namespace SkillSystem.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Salt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("UserId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("User", (string)null);
                 });

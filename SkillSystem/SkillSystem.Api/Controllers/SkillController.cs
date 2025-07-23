@@ -27,7 +27,9 @@ public class SkillController : ControllerBase
         return await SkillService.PostAsync(skillCreateDto);
     }
 
+    
     [HttpGet("get-all")]
+    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
     public async Task<ICollection<SkillGetDto>> GetAll()
     {
         return await SkillService.GetAllAsync();

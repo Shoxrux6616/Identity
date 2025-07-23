@@ -18,9 +18,11 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         builder.Services.AddMemoryCache();
+        builder.Services.AddResponseCaching();
         builder.ConfigureDatabase();
         builder.ConfigureDI();
         builder.ConfigureSerilog();
+        
 
 
         var app = builder.Build();
@@ -36,7 +38,7 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
+        app.UseResponseCaching();
         app.UseHttpsRedirection();
 
         app.UseAuthorization();

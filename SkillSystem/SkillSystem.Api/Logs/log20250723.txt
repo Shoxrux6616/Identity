@@ -1,0 +1,94 @@
+2025-07-23 16:39:40.672 +05:00 [ERR] Failed executing DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_User_Email] ON [User] ([Email]);
+2025-07-23 16:40:10.790 +05:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_User_Email] ON [User] ([Email]);
+2025-07-23 16:41:25.651 +05:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_User_Email] ON [User] ([Email]);
+2025-07-23 16:42:29.275 +05:00 [ERR] Failed executing DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_User_Email] ON [User] ([Email]);
+2025-07-23 16:54:51.268 +05:00 [INF] Request: GET /swagger
+2025-07-23 16:54:51.335 +05:00 [INF] Request: GET /swagger/index.html
+2025-07-23 16:54:51.399 +05:00 [INF] Request: GET /swagger/swagger-ui-bundle.js
+2025-07-23 16:54:51.399 +05:00 [INF] Request: GET /swagger/swagger-ui-standalone-preset.js
+2025-07-23 16:54:51.399 +05:00 [INF] Request: GET /swagger/swagger-ui.css
+2025-07-23 16:54:51.574 +05:00 [INF] Request: GET /swagger/v1/swagger.json
+2025-07-23 16:54:51.586 +05:00 [INF] Request: GET /swagger/favicon-32x32.png
+2025-07-23 16:55:33.113 +05:00 [INF] Request: POST /api/auth/sign-up
+2025-07-23 16:55:33.710 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+FluentValidation.ValidationException: Validation failed: 
+ -- Password: Password is invalid Severity: Error
+   at SkillSystem.Bll.Services.AuthService.SignUpAsync(UserCreateDto userCreateDto) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Bll\Services\AuthService.cs:line 37
+   at SkillSystem.Api.Controllers.AuthController.SignUp(UserCreateDto userCreateDto) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Controllers\AuthController.cs:line 23
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SkillSystem.Api.Middlewares.TimingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\TimingMiddleware.cs:line 13
+   at SkillSystem.Api.Middlewares.AddSkillsCountHeaderMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\AddSkillsCountHeaderMiddleware.cs:line 22
+   at SkillSystem.Api.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\RequestLoggingMiddleware.cs:line 16
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-23 16:55:49.732 +05:00 [INF] Request: POST /api/auth/sign-up
+2025-07-23 16:55:49.898 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+FluentValidation.ValidationException: Validation failed: 
+ -- UserName: UserName is invalid Severity: Error
+   at SkillSystem.Bll.Services.AuthService.SignUpAsync(UserCreateDto userCreateDto) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Bll\Services\AuthService.cs:line 37
+   at SkillSystem.Api.Controllers.AuthController.SignUp(UserCreateDto userCreateDto) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Controllers\AuthController.cs:line 23
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SkillSystem.Api.Middlewares.TimingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\TimingMiddleware.cs:line 13
+   at SkillSystem.Api.Middlewares.AddSkillsCountHeaderMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\AddSkillsCountHeaderMiddleware.cs:line 22
+   at SkillSystem.Api.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\RequestLoggingMiddleware.cs:line 16
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-23 16:56:01.273 +05:00 [INF] Request: POST /api/auth/sign-up
+2025-07-23 16:56:01.443 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+FluentValidation.ValidationException: Validation failed: 
+ -- Password: Password is invalid Severity: Error
+   at SkillSystem.Bll.Services.AuthService.SignUpAsync(UserCreateDto userCreateDto) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Bll\Services\AuthService.cs:line 37
+   at SkillSystem.Api.Controllers.AuthController.SignUp(UserCreateDto userCreateDto) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Controllers\AuthController.cs:line 23
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at SkillSystem.Api.Middlewares.TimingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\TimingMiddleware.cs:line 13
+   at SkillSystem.Api.Middlewares.AddSkillsCountHeaderMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\AddSkillsCountHeaderMiddleware.cs:line 22
+   at SkillSystem.Api.Middlewares.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in D:\Work\Groups\G_11\Projects\G11_5Modul\SkillSystem\SkillSystem.Api\Middlewares\RequestLoggingMiddleware.cs:line 16
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-23 16:56:10.239 +05:00 [INF] Request: POST /api/auth/sign-up
