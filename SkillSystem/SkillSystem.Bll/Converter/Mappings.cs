@@ -49,7 +49,6 @@ public static class Mappings
             Name = skillCreateDto.Name,
             Description = skillCreateDto.Description,
             Level = (SkillLevel)skillCreateDto.Level,
-            UserId = skillCreateDto.UserId,
         };
     }
 }

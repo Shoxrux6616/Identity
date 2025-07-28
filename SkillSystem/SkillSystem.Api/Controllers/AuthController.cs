@@ -34,7 +34,4 @@ public class AuthController : ControllerBase
     {
         return await AuthService.RefreshTokenAsync(refreshTokenDto);
     }
-
-
-
 }

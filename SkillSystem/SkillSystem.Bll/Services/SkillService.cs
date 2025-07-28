@@ -30,14 +30,15 @@ public class SkillService : ISkillService
         MemoryCache = memoryCache;
     }
 
-    public async Task<ICollection<SkillGetDto>> GetAllAsync()
+    public async Task<ICollection<SkillGetDto>> GetAllAsync(long userId)
     {
-        if (MemoryCache.TryGetValue(SkillCacheKey, out List<SkillGetDto> cachedSkills))
-        {
-            return cachedSkills;
-        }
+        //if (MemoryCache.TryGetValue(SkillCacheKey, out List<SkillGetDto> cachedSkills))
+        //{
+        //    return cachedSkills;
+        //}
 
         var skills = await SkillRepository.SelectAllAsync();
+        skills = skills.Where(s => s.UserId == userId).ToList();
         var skillsGetDto = skills.Select(s => Mappings.ConvertToSkillGetDto(s)).ToList();
 
         MemoryCache.Set(SkillCacheKey, skillsGetDto, TimeSpan.FromMinutes(10));
@@ -68,7 +69,7 @@ public class SkillService : ISkillService
         return skillsGetDto;
     }
 
-    public async Task<long> PostAsync(SkillCreateDto skillCreateDto)
+    public async Task<long> PostAsync(SkillCreateDto skillCreateDto, long userId)
     {
         // G11Service
         var result = Validator.Validate(skillCreateDto);
@@ -78,7 +79,7 @@ public class SkillService : ISkillService
             throw new ValidationException(result.Errors);
         }
 
-        var res = await UserRepository.CheckUserExistance(skillCreateDto.UserId);
+        var res = await UserRepository.CheckUserExistance(userId);
         if(res == false)
         {
             throw new Exception("User not fount");
@@ -86,6 +87,7 @@ public class SkillService : ISkillService
 
 
         var skill = Mappings.ConvertToSkill(skillCreateDto);
+        skill.UserId = userId;
         var skillId = await SkillRepository.InsertAsync(skill);
         ClearCache();
         return skillId;

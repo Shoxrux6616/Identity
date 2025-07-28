@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SkillSystem.Bll.Dtos.SkillDto;
 using SkillSystem.Bll.Services;
 
 namespace SkillSystem.Api.Controllers;
 
+[Authorize]
 [Route("api/skill")]
 [ApiController]
 public class SkillController : ControllerBase
@@ -24,7 +26,10 @@ public class SkillController : ControllerBase
     public async Task<long> PostSkill(SkillCreateDto skillCreateDto)
     {
         // G11Service call
-        return await SkillService.PostAsync(skillCreateDto);
+        var userId = User.FindFirst("UserId")?.Value;
+        var id = long.Parse(userId);
+
+        return await SkillService.PostAsync(skillCreateDto, id);
     }
 
     
@@ -32,7 +37,10 @@ public class SkillController : ControllerBase
     [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
     public async Task<ICollection<SkillGetDto>> GetAll()
     {
-        return await SkillService.GetAllAsync();
+        var userId = User.FindFirst("UserId")?.Value;
+        var id = long.Parse(userId);
+
+        return await SkillService.GetAllAsync(id);
     }
 
     [HttpGet("get-all-paginated")]

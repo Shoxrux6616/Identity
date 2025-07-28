@@ -3,6 +3,7 @@ using SkillSystem.Bll.Converter;
 using SkillSystem.Bll.Dtos;
 using SkillSystem.Bll.Dtos.UserDto;
 using SkillSystem.Bll.Services.Helper;
+using SkillSystem.DataAccess.Entities;
 using SkillSystem.Repository.Repositories;
 
 namespace SkillSystem.Bll.Services;
@@ -11,33 +12,47 @@ public class AuthService : IAuthService
 {
     private readonly IUserRepository UserRepository;
     private readonly IValidator<UserCreateDto> Validator;
+    private readonly ITokenService TokenService;
+    private readonly IRefreshTokenRepository RefreshTokenRepository;
 
-    public AuthService(IUserRepository userRepository, IValidator<UserCreateDto> validator)
+    public AuthService(IUserRepository userRepository, IValidator<UserCreateDto> validator, ITokenService tokenService, IRefreshTokenRepository refreshTokenRepository)
     {
         UserRepository = userRepository;
         Validator = validator;
+        TokenService = tokenService;
+        RefreshTokenRepository = refreshTokenRepository;
     }
 
     public async Task<LoginResponseDto> LoginAsync(LoginDto loginDto)
     {
-        var user = await UserRepository.SelectUserByUserNameAsync(userLoginDto.UserName);
+        if(loginDto.UserName == null && loginDto.Email == null)
+        {
+            throw new ArgumentException("UserName or Email must be provided");
+        }
 
-        var checkUserPassword = PasswordHasher.Verify(userLoginDto.Password, user.Password, user.Salt);
+        var user = loginDto.UserName != null ? await UserRepository.SelectUserByUserNameAsync(loginDto.UserName) :
+            await UserRepository.SelectUserByUserEmailAsync(loginDto.Email);
+
+        if(user == null)
+        {
+            throw new Exception("UserName or password incorrect");
+        }
+
+        var checkUserPassword = PasswordHasher.Verify(loginDto.Password, user.Password, user.Salt);
 
         if (checkUserPassword == false)
         {
-            throw new UnauthorizedException("UserName or password incorrect");
+            throw new Exception("UserName or password incorrect");
         }
 
-        var userGetDto = new UserGetDto()
+        var userGetDto = new UserTokenDto()
         {
             UserId = user.UserId,
             UserName = user.UserName,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email,
-            PhoneNumber = user.PhoneNumber,
-            Role = (UserRoleDto)user.Role,
+            UserRole = (UserRoleDto)user.Role,
         };
 
         var token = TokenService.GenerateToken(userGetDto);
@@ -84,6 +99,7 @@ public class AuthService : IAuthService
         var user = Mappings.ConvertToUser(userCreateDto);
         user.Password = hashedPassword.Hash;
         user.Salt = hashedPassword.Salt;
+        user.Role = UserRole.User; 
 
         var userId = await UserRepository.InsertAsync(user);
 

@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SkillSystem.DataAccess.Entities;
 
 namespace SkillSystem.DataAccess.Configurations;
@@ -25,5 +25,9 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.HasMany(u => u.Skills)
             .WithOne(s => s.User)
             .HasForeignKey(s => s.UserId);
+
+        builder.HasMany(u => u.RefreshTokens)
+            .WithOne(rt => rt.User)
+            .HasForeignKey(rf => rf.UserId);
     }
 }

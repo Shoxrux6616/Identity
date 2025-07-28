@@ -22,7 +22,7 @@ public class Program
         builder.ConfigureDatabase();
         builder.ConfigureDI();
         builder.ConfigureSerilog();
-        
+        builder.ConfigureJwtAuth();
 
 
         var app = builder.Build();
@@ -41,7 +41,9 @@ public class Program
         app.UseResponseCaching();
         app.UseHttpsRedirection();
 
+        app.UseAuthentication();
         app.UseAuthorization();
+
 
 
         app.MapControllers();

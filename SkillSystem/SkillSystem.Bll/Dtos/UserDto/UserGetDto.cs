@@ -8,5 +8,6 @@ public class UserGetDto
     public string FirstName { get; set; }
     public string LastName { get; set; }
 
+    public UserRoleDto UserRole { get; set; }
     public List<SkillGetDto> SkillDtos { get; set; }
 }

@@ -43,12 +43,28 @@ public class UserRepository : IUserRepository
     {
         var user = await MainContext.Users.FirstOrDefaultAsync(u => u.UserId == userId);
 
-        if(user == null)
+        if (user == null)
         {
             return user;
         }
 
         await MainContext.Entry(user).Collection(u => u.Skills).LoadAsync();
+
+        return user;
+    }
+
+    public async Task<User?> SelectUserByUserEmailAsync(string email)
+    {
+        var user = await MainContext.Users
+            .FirstOrDefaultAsync(u => u.Email == email);
+
+        return user;
+    }
+
+    public async Task<User?> SelectUserByUserNameAsync(string userName)
+    {
+        var user = await MainContext.Users
+            .FirstOrDefaultAsync(u => u.UserName == userName);
 
         return user;
     }

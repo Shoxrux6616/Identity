@@ -5,8 +5,8 @@ namespace SkillSystem.Bll.Services;
 
 public interface ISkillService
 {
-    Task<long> PostAsync(SkillCreateDto skillCreateDto);
-    Task<ICollection<SkillGetDto>> GetAllAsync();
+    Task<long> PostAsync(SkillCreateDto skillCreateDto, long userId);
+    Task<ICollection<SkillGetDto>> GetAllAsync(long userId);
     Task<SkillPaginatedDto> GetAllAsync(int skip, int take);
     Task<ICollection<SkillGetDto>> GetAllByUserIdAsync(long userId);
     Task DeleteAsync(long userId, long skillId);

@@ -1,4 +1,6 @@
-﻿namespace SkillSystem.Bll.Dtos;
+﻿using SkillSystem.Bll.Dtos.UserDto;
+
+namespace SkillSystem.Bll.Dtos;
 
 public class UserTokenDto
 {
@@ -7,4 +9,5 @@ public class UserTokenDto
     public string LastName { get; set; }
     public string Email { get; set; }
     public string UserName { get; set; }
+    public UserRoleDto UserRole { get; set; }
 }

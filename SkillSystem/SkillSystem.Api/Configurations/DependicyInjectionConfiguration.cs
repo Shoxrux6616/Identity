@@ -25,6 +25,8 @@ public static class DependicyInjectionConfiguration
 
         builder.Services.AddScoped<IG11Service, G11Service>();
 
+        builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
         builder.Services.AddValidatorsFromAssemblyContaining<UserCreateDtoValidator>();
         builder.Services.AddValidatorsFromAssemblyContaining<SkillCreateDtoValidator>();
 
@@ -42,7 +44,7 @@ public static class DependicyInjectionConfiguration
         };
         builder.Services.AddSingleton<DesignPatternSettings>(designPatternSettings);
 
-        var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+        var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
         builder.Services.AddSingleton<JwtSettings>(jwtSettings);
     }
 }

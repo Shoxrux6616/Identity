@@ -8,3 +8,10 @@ public class UserCreateDto
     public string Password { get; set; }
     public string UserName { get; set; }
 }
+
+public enum UserRoleDto
+{
+    User,
+    Admin,
+    SuperAdmin
+}

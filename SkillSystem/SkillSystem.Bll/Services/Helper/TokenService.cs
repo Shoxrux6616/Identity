@@ -2,6 +2,7 @@
 using SkillSystem.Bll.Dtos;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace SkillSystem.Bll.Services.Helper;
@@ -15,11 +16,6 @@ public class TokenService : ITokenService
         this.jwtSettings = jwtSettings;
     }
 
-    public string GenerateRefreshToken()
-    {
-        throw new NotImplementedException();
-    }
-
     public string GenerateToken(UserTokenDto user)
     {
         var IdentityClaims = new Claim[]
@@ -28,6 +24,7 @@ public class TokenService : ITokenService
             new Claim("FirstName",user.FirstName.ToString()),
             new Claim("LastName",user.LastName.ToString()),
             new Claim("UserName",user.UserName.ToString()),
+            new Claim(ClaimTypes.Role,user.UserRole.ToString()),
             new Claim(ClaimTypes.Email,user.Email.ToString())
         };
 
@@ -46,8 +43,28 @@ public class TokenService : ITokenService
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
+    public string GenerateRefreshToken()
+    {
+        var randomBytes = new byte[64];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomBytes);
+        return Convert.ToBase64String(randomBytes);
+    }
+
     public ClaimsPrincipal? GetPrincipalFromExpiredToken(string token)
     {
-        throw new NotImplementedException();
+        var tokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = jwtSettings.Issuer,
+            ValidateAudience = true,
+            ValidAudience = jwtSettings.Audience,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecurityKey!))
+        };
+
+        var tokenHandler = new JwtSecurityTokenHandler();
+        return tokenHandler.ValidateToken(token, tokenValidationParameters, out _);
     }
 }
