@@ -30,29 +30,6 @@ public class UserRepository : IUserRepository
         return user.UserId;
     }
 
-    public async Task<ICollection<User>> SelectAllAsync()
-    {
-        var users = await MainContext.Users
-            .Include(u => u.Skills)
-            .ToListAsync();
-
-        return users;
-    }
-
-    public async Task<User?> SelectByIdAsync(long userId)
-    {
-        var user = await MainContext.Users.FirstOrDefaultAsync(u => u.UserId == userId);
-
-        if (user == null)
-        {
-            return user;
-        }
-
-        await MainContext.Entry(user).Collection(u => u.Skills).LoadAsync();
-
-        return user;
-    }
-
     public async Task<User?> SelectUserByUserEmailAsync(string email)
     {
         var user = await MainContext.Users

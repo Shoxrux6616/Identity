@@ -22,10 +22,6 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.Property(u => u.FirstName).IsRequired().HasMaxLength(50);
         builder.Property(u => u.LastName).IsRequired(false).HasMaxLength(50);
 
-        builder.HasMany(u => u.Skills)
-            .WithOne(s => s.User)
-            .HasForeignKey(s => s.UserId);
-
         builder.HasMany(u => u.RefreshTokens)
             .WithOne(rt => rt.User)
             .HasForeignKey(rf => rf.UserId);

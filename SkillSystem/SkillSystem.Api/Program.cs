@@ -1,6 +1,5 @@
 
 using SkillSystem.Api.Configurations;
-using SkillSystem.Api.Middlewares;
 
 namespace SkillSystem.Api;
 
@@ -27,9 +26,6 @@ public class Program
 
         var app = builder.Build();
 
-        app.UseMiddleware<RequestLoggingMiddleware>();
-        app.UseMiddleware<AddSkillsCountHeaderMiddleware>();
-        app.RegisterTimingMiddleware();
         //app.RegisterAddSkillsCountHeaderMiddleware();
 
         // Configure the HTTP request pipeline.

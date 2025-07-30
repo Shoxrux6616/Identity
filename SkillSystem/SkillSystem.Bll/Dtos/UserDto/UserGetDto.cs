@@ -1,5 +1,4 @@
-﻿using SkillSystem.Bll.Dtos.SkillDto;
-
+﻿
 namespace SkillSystem.Bll.Dtos.UserDto;
 
 public class UserGetDto
@@ -9,5 +8,4 @@ public class UserGetDto
     public string LastName { get; set; }
 
     public UserRoleDto UserRole { get; set; }
-    public List<SkillGetDto> SkillDtos { get; set; }
 }

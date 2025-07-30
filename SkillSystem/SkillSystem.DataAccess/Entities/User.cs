@@ -11,7 +11,6 @@ public class User
     public UserRole Role { get; set; }
     public string UserName { get; set; }
 
-    public ICollection<Skill> Skills { get; set; }
     public ICollection<RefreshToken> RefreshTokens { get; set; }
 }
 
