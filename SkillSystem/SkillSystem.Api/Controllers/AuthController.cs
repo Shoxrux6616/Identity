@@ -10,6 +10,7 @@ namespace SkillSystem.Api.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
+
     private readonly IAuthService AuthService;
 
     public AuthController(IAuthService authService)
