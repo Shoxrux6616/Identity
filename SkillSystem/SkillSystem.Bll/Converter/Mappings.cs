@@ -13,7 +13,6 @@ public static class Mappings
             UserId = user.UserId,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            SkillDtos = user.Skills == null ? new List<SkillGetDto>() : user.Skills.Select(s => ConvertToSkillGetDto(s)).ToList(),
         };
     }
 
@@ -28,28 +27,7 @@ public static class Mappings
             UserName = userCreateDto.UserName,
         };
     }
-    public static SkillGetDto ConvertToSkillGetDto(Skill skill)
-    {
-        return new SkillGetDto()
-        {
-            SkillId = skill.SkillId,
-            Type = skill.Type,
-            Name = skill.Name,
-            Description = skill.Description,
-            UserId = skill.UserId,
-            Level = (SkillLevelDto)skill.Level
-        };
-    }
-
-    public static Skill ConvertToSkill(SkillCreateDto skillCreateDto)
-    {
-        return new Skill()
-        {
-            Type = skillCreateDto.Type,
-            Name = skillCreateDto.Name,
-            Description = skillCreateDto.Description,
-            Level = (SkillLevel)skillCreateDto.Level,
-        };
-    }
+    
+     
 }
 

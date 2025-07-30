@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SkillSystem.Bll\SkillSystem.Bll.csproj" />
+    <ProjectReference Include="..\SkillSystem.Bll\Identity.Bll.csproj" />
   </ItemGroup>
 
 </Project>

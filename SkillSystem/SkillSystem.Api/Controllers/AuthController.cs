@@ -17,19 +17,19 @@ public class AuthController : ControllerBase
         AuthService = authService;
     }
 
-    [HttpPost("sign-up")]
+    [HttpPost("v1/auth/sign-up")]
     public async Task<long> SignUp(UserCreateDto userCreateDto)
     {
         return await AuthService.SignUpAsync(userCreateDto);
     }
 
-    [HttpPost("login")]
+    [HttpPost("v1/auth/login")]
     public async Task<LoginResponseDto> Login(LoginDto loginDto)
     {
         return await AuthService.LoginAsync(loginDto);
     }
 
-    [HttpPost("refresh-token")]
+    [HttpPost("v1/auth/refresh-token")]
     public async Task<LoginResponseDto> RefreshToken(RefreshTokenDto refreshTokenDto)
     {
         return await AuthService.RefreshTokenAsync(refreshTokenDto);
