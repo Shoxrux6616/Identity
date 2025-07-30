@@ -24,4 +24,8 @@
     <ProjectReference Include="..\SkillSystem.Bll\Identity.Bll.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logs\" />
+  </ItemGroup>
+
 </Project>

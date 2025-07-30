@@ -10,7 +10,7 @@ public static class SerilogConfiguration
         .ReadFrom.Configuration(builder.Configuration)
         .CreateLogger();
 
-        builder.Logging.ClearProviders(); // Remove default logging providers
-        builder.Logging.AddSerilog(dispose: true); // Add Serilog as the logging provider
+        builder.Logging.ClearProviders(); 
+        builder.Logging.AddSerilog(dispose: true); 
     }
 }
